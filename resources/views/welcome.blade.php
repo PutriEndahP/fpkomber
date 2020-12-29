@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+{{-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -129,4 +130,38 @@
             </div>
         </div>
     </body>
+</html> --}}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Menampilkan Peta dengan LeafletJS</title>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
+	<style type="text/css">
+		#peta{
+			height:100vh;
+		}
+	</style>
+</head>
+<body>
+	<div id="peta"></div>
+
+	<script type="text/javascript">
+		var mapOptions = {
+			center: [-3.7973471,102.2657887],
+			zoom: 13
+		}
+
+		var peta = new L.map('peta', mapOptions);
+
+		L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+			attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+			maxZoom: 18,
+			id: 'mapbox.streets',
+			accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw'
+		}).addTo(peta);
+
+	</script>
+</body>
 </html>
