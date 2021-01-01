@@ -132,3 +132,67 @@
     </body>
 </html> --}}
 
+<<<<<<< HEAD
+=======
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Menampilkan Peta dengan LeafletJS</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>
+	<style type="text/css">
+		#map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+        }
+	</style>
+</head>
+<body>
+    <div id="map"></div>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+    <script>
+        // initialize the map on the "map" div with a given center and zoom
+        var map = L.map('map', {
+            center: [-6.991576, 109.122923],
+            zoom: 13
+        });
+
+        L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=Ts9g8McLuNVEfjGFTHeG', {
+            attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a>'
+        }).addTo(map);
+
+        var LeafIcon = L.Icon.extend({
+            options: {
+                shadowUrl: '/asset/leaf-shadow.png',
+                iconSize:     [38, 95],
+                shadowSize:   [50, 64],
+                iconAnchor:   [22, 94],
+                shadowAnchor: [4, 62],
+                popupAnchor:  [-3, -76]
+            }
+        });
+
+        var greenIcon = new LeafIcon({iconUrl: '/asset/leaf-green.png'}),
+            redIcon = new LeafIcon({iconUrl: '/asset/leaf-red.png'}),
+            orangeIcon = new LeafIcon({iconUrl: '/asset/leaf-orange.png'});
+        
+        L.marker([-6.993347, 109.126950], {icon: greenIcon}).addTo(map).bindPopup("I am a green leaf.");
+        L.marker([-6.994082, 109.129739], {icon: redIcon}).addTo(map).bindPopup("I am a red leaf.");
+        L.marker([-6.990121, 109.127797], {icon: orangeIcon}).addTo(map).bindPopup("I am an orange leaf.");
+
+    </script>
+</body>
+</html>
+>>>>>>> 3a21467e0286120141c5022478c8ae86a7991b37
